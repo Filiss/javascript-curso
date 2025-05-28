@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const randomNumber = Math.random();
+
+        if (randomNumber <= 0.5){
+            const coin = 'Cara';
+        } else {
+            const coin = 'Coroa';
+        }
+
+        const coin = randomNumber <= 0.5 ? 'Cara' : 'Coroa';
+        console.log(coin);
+        
+        const guess = 'Cara';
+
+        if (guess === coin){
+            console.log('Você ganhou!');
+        } else {
+            console.log('Você perdeu!');
+        }
+
+    </script>
+</body>
+</html>
