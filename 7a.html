@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <script>
+        function greet(name) {
+            return `Hello, ${name}!`;
+        }
+
+        console.log(greet("Alice"));
+
+        function convertToFahrenheit(celsius){
+            return (celsius * 9/5) + 32;
+        }
+
+        console.log(convertToFahrenheit(25));
+
+        function convertToCelsius(fahrenheit){
+            return (fahrenheit - 32) * 5/9;
+        }
+        console.log(convertToCelsius(77));
+
+        function convertTemperature(value, unit) {
+            if (unit === 'C') {
+                return convertToFahrenheit(value);
+            } else if (unit === 'F') {
+                return convertToCelsius(value);
+            } else {
+                throw new Error('Invalid unit. Use "C" for Celsius or "F" for Fahrenheit.');
+            }
+        }
+
+        console.log(convertTemperature(25, 'C')); // 77
+        console.log(convertTemperature(77, 'F')); // 25
+
+        function convertToMiles(kilometers, feet) {
+            return kilometers * 0.621371;
+            return feet / 5280;
+        }
+
+        function convertToKilometers(miles, feet) {
+            return miles / 0.621371;
+            return feet * 0.000189394;
+        }
+
+        function convertToFeet (kilometers, miles) {
+            return kilometers * 3280.84;
+            return miles * 5280;
+        }
+
+
+        function convertLength(length, from, to) {
+            if (from === miles && to === kilometers) {
+                return convertToMiles(length);
+            } else if (from === kilometers && to === miles) {
+                return convertToKilometers(length);
+            } else if (from === miles && to === miles) {
+                return length; // No conversion needed
+            } else if (from === kilometers && to === kilometers) {
+                return length; // No conversion needed
+            } else if (from === feet && to === kilometers) {
+                return length * 0.0003048; // Convert feet to kilometers
+            } else if (from === feet && to === miles) {
+                return length * 0.000189394; // Convert feet to miles
+            } else if (from === feet && to === feet) {
+                return length; // No conversion needed
+            } else {
+                throw new Error('Invalid conversion units. Use "miles", "kilometers", or "feet".');
+            }
+        }
+
+        console.log(convertToMiles(10)); // 6.21371
+        console.log(convertToKilometers(6.21371)); // 10
+        console.log(convertToFeet(10)); // 32808.4
+    </script>
+</body>
+</html>
