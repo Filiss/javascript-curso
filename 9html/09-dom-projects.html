@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Projects</title>
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <button class="subscribe-button">Subscribe</button>
+
+    <p>Rock Paper Scissors Game</p>
+    <a href="../8html/08-rock-papaer-scissors.html">Click here to play</a>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = + $10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <label for="orderAmount">Order Amount:</label>
+    <input type="number" id="orderAmount" />
+    <button id="calculateShipping">Calculate Shipping</button>
+    <p id="shippingCost"></p>
+    <script>
+      const subscribeButton = document.querySelector('.subscribe-button');
+      let isSubscribed = false;
+
+      subscribeButton.addEventListener('click', () => {
+      if (!isSubscribed) {
+          subscribeButton.innerHTML = 'Subscribed!';
+          subscribeButton.style.backgroundColor = 'gray';
+          subscribeButton.style.color = 'white';
+          subscribeButton.style.border = '1px solid black';
+          isSubscribed = true;
+        } else {
+          subscribeButton.innerHTML = 'Subscribe';
+          subscribeButton.style.backgroundColor = '';
+          subscribeButton.style.color = '';
+          subscribeButton.style.border = '';
+          isSubscribed = false;
+        }
+      });
+      const orderAmountInput = document.getElementById('orderAmount');
+      const calculateShippingButton = document.getElementById('calculateShipping');
+
+      calculateShippingButton.addEventListener('click', () => {
+        const orderAmount = parseFloat(orderAmountInput.value);
+        let shippingCost = 0;
+
+        if (orderAmount < 40) {
+          shippingCost += 10;
+        }
+
+        document.getElementById('shippingCost').innerText = `Shipping Cost: $${shippingCost}`;
+      });
+
+    </script>
+  </body>
+</html>
